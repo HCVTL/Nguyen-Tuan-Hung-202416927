@@ -71,8 +71,8 @@ public class Cart {
         System.out.println("The disc has been removed");
     }
 
-    public int totalCost () {
-        int total = 0;
+    public float totalCost () {
+        float total = 0;
         for (int i = 0; i < qtyOrdered; i++) {
             total += itemOrdered[i].getCost();
         }
@@ -81,8 +81,35 @@ public class Cart {
     }
 
     public void printCart() {
+        System.out.println("********************CART********************");
+        System.out.println("Ordered Items:");
         for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println(itemOrdered[i].getTitle());
+            System.out.println((i + 1) + " - " + itemOrdered[i].DVDtoString());
         }
+
+        System.out.println("Total Cost: " + totalCost() + "$");
+        System.out.println("********************************************");
+    }
+
+    public void searchByID(int ID) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (ID == itemOrdered[i].getID()) {
+                System.out.println(itemOrdered[i].DVDtoString());
+                return;
+            }
+        }
+
+        System.out.println("No DVD has ID = " + ID);
+    }
+
+    public void searchByTitle(String title) {
+        for (int i = 0; i < qtyOrdered; i++) {
+            if (itemOrdered[i].getTitle().equals(title)) {
+                System.out.println(itemOrdered[i].DVDtoString());
+                return;
+            }
+        }
+
+        System.out.println("No DVD has title " + title);
     }
 }
