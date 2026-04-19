@@ -1,3 +1,8 @@
+package TestCart;
+
+import Cart.Cart;
+import Disc.DigitalVideoDisc;
+
 public class CartTest {
     public static void main(String[] args) {
         Cart cart = new Cart();

@@ -1,3 +1,8 @@
+package TestStore;
+
+import Disc.DigitalVideoDisc;
+import Store.Store;
+
 public class StoreTest {
     public static void main(String args[]) {
         Store store = new Store();

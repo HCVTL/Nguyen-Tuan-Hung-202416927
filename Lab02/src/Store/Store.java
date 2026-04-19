@@ -1,3 +1,7 @@
+package Store;
+
+import Disc.DigitalVideoDisc;
+
 public class Store {
     public DigitalVideoDisc itemInStore[] = new DigitalVideoDisc[10000];
     private int inStore = 0;
