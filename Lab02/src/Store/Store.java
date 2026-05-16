@@ -1,36 +1,37 @@
 package Store;
 
-import Disc.DigitalVideoDisc;
+import Media.DigitalVideoDisc;
+import Media.Media;
+
+import java.util.ArrayList;
 
 public class Store {
-    public DigitalVideoDisc itemInStore[] = new DigitalVideoDisc[10000];
-    private int inStore = 0;
+    public ArrayList<Media> itemInStore = new ArrayList<Media>();
 
-    public void addDVD (DigitalVideoDisc dvd) {
-        itemInStore[inStore] = dvd;
-        inStore++;
-        System.out.println("Added");
+    public void addMedia (Media media) {
+        itemInStore.add(media);
+        System.out.println("Added " + media.getTitle());
     }
 
-    public void removeDVD (DigitalVideoDisc dvd) {
-        int removeID = -1;
-        for (int i = 0; i < inStore; i++) {
-            if (itemInStore[i].equals(dvd)) {
-                removeID = i;
-                break;
+    public void removeMedia(Media media) {
+        if (itemInStore.contains(media)) {
+            itemInStore.remove(media);
+            System.out.println("Removed " + media.getTitle());
+        }
+    }
+
+    public Media searchByTitle(String title) {
+        for (Media m : itemInStore) {
+            if (m.getTitle().equals(title)) {
+                return m;
             }
         }
+        return null;
+    }
 
-        if (removeID == -1) {
-            System.out.println("No DVD has title " + dvd.getTitle());
-            return;
+    public void viewStore() {
+        for (Media m : itemInStore) {
+            System.out.println(m.toString());
         }
-
-        for (int i = removeID; i < inStore - 1; i++) {
-            itemInStore[i] = itemInStore[i + 1];
-        }
-
-        inStore--;
-        System.out.println("Removed");
     }
 }

@@ -1,6 +1,6 @@
 package TestPassingParameter;
 
-import Disc.DigitalVideoDisc;
+import Media.DigitalVideoDisc;
 
 public class TestPassingParameter {
     public static void main(String[] args) {
